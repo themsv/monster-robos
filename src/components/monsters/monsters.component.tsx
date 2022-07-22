@@ -3,6 +3,8 @@ import Monster from "../monster/monster.component";
 
 import "./monsters.styles.css";
 
+import { getUsers } from "../../utils/data";
+
 export interface IMonster {
   name: string;
   id: number;
@@ -17,16 +19,18 @@ const Mosnters = ({ searchValue }: MonstersProps) => {
   const [monsters, setMonsters] = useState<IMonster[]>([]);
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => setMonsters(users));
+    const getUsersData = async () => {
+      const users = await getUsers<IMonster[]>();
+      setMonsters(users);
+    };
+    getUsersData();
   }, []);
+
   useEffect(() => {
     const newMonsters = monsters.filter((monster) =>
       monster.name.toLowerCase().includes(searchValue)
     );
     setFilteredMonsters(newMonsters);
-    console.log(newMonsters);
   }, [searchValue, monsters]);
 
   return (

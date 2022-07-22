@@ -9,8 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(90deg, #fcc2d7, #a5d8ff);
-  padding: 0 10rem;
   color: #333;
+  text-align: center;
 }
 
 code {

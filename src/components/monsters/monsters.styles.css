@@ -1,8 +1,26 @@
 .monsters-container {
   margin-top: 48px;
+  padding: 0 42px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 24px;
   row-gap: 48px;
+}
+
+@media (max-width: 980px) {
+  .monsters-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 736px) {
+  .monsters-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .monsters-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
